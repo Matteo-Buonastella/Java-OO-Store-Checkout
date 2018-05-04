@@ -10,7 +10,7 @@ public class Items {
             }
         }
 
-        //Function recieves a fruit anc checks if it exists
+        //Function recieves a fruit and checks if it exists
         Boolean checkItem(String fruit){
             String cap = fruit.substring(0, 1).toUpperCase() + fruit.substring(1);  //Capitalizes the first letter if not already
             boolean found = false;
