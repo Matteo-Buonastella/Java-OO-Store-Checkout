@@ -26,7 +26,6 @@ public class Checkout {
     }
 
     void itemAndQuantity(String Cart[], int Quantity[], String fruitList[], double fruitPrice[]){
-        //String format = "%-40s%s%n";
         System.out.println("\n\t   Item  Qty  Price");
         for (int i = 0; i < Cart.length; i++){
             if(Cart[i] != null) {
