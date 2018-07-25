@@ -5,7 +5,6 @@ public class Checkout {
     //Main function that forms the receipt
     void Receipt(String Cart[], int [] Quantity, String fruitList[], double fruitPrice[], double runningTotal){
         totalWithTax = totalWithTax(runningTotal);
-
         receiptHeading();
         itemAndQuantity(Cart,  Quantity,  fruitList, fruitPrice);
         HSTAmount(runningTotal);
