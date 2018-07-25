@@ -112,9 +112,8 @@ public class Cart {
     //Function receives a fruit and the amount the user wants to remove
     void removeItem(String fruit_, int amount, String fruitList[], double fruitPrice[]){
         String fruit = fruit_.substring(0, 1).toUpperCase() + fruit_.substring(1);  //Capitalizes the first letter if not already
-
-        for(int i = 0; i < Cart.length; i++){
-            if(Cart[i] != null){
+        for (int i = 0; i < Cart.length; i++){
+            if (Cart[i] != null){
                 if (Cart[i].equals(fruit)){
                     double price = getCost(fruit, fruitList, fruitPrice);  //Gets base price of the fruit
                     if (amount > Quantity[i]){
