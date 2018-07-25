@@ -24,9 +24,7 @@ public class Cart {
             else if (Cart[i] != item && Cart[i] == null && counter == 0){    //If item doesn't exist, create item and add quantity
                     int found = 0;
                     for (int j = 0; j < Cart.length; j++){    //Checks through entire cart to see if item exists
-                        if (Cart[j] == null){
-                        }
-                        else if (Cart[j] != null){            //If it DOES exist set found to 1
+                       if (Cart[j] != null){            //If it DOES exist set found to 1
                             if (Cart[j].equals(item)){
                                 found++;
                             }
