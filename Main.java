@@ -49,7 +49,6 @@ public class Main {
                 c.buyItem(fruit, quantity, i.fruitList, i.fruitPrice);
                     break;
             case 3:
-
                 System.out.println("Which fruit would you like to remove?: ");
                 String removeFruit = input.next();
                 if (!i.checkItem(removeFruit)){
@@ -71,7 +70,7 @@ public class Main {
                 }
                 break;
             case 4:
-               c.displayCart(i.fruitList, i.fruitPrice);
+                c.displayCart(i.fruitList, i.fruitPrice);
                 break;
             case 5:
                 double runningTotal = c.getRunningTotal();
