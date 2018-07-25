@@ -5,8 +5,7 @@ public class Cart {
 
     //Function takes in the item, quantity, fruit list array from Items class and fruit Price array from Items class
     void buyItem(String item_, int quantity, String fruitList[], double fruitPrice[]){
-        //Counter makes sure Cart and Quantity gets inserted only once
-        int counter = 0;
+        int counter = 0; //Counter makes sure Cart and Quantity gets inserted only once
         String item = item_.substring(0, 1).toUpperCase() + item_.substring(1);  //Capitalizes the first letter if not already
         for (int i = 0; i < Cart.length; i++){
             if (Cart[i] != null) {
