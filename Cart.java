@@ -6,7 +6,7 @@ public class Cart {
     //Function adds a Fruit to the Cart
     void buyItem(String item_, int quantity, String fruitList[], double fruitPrice[]){
         int counter = 0; //Counter makes sure Cart and Quantity gets inserted only once
-        String item = item_.substring(0, 1).toUpperCase() + item_.substring(1);  //Capitalizes the first letter if not already
+        String item = capitalizeLetter(item_);
         for (int i = 0; i < Cart.length; i++){
             if (Cart[i] != null) {
                 if (Cart[i].equals(item) && counter == 0) {    //If item already exists, just increase quantity
@@ -22,30 +22,30 @@ public class Cart {
                 }
             }
             else if (Cart[i] != item && Cart[i] == null && counter == 0){    //If item doesn't exist, create item and add quantity
-                    int found = 0;
-                    for (int j = 0; j < Cart.length; j++){    //Checks through entire cart to see if item exists
-                       if (Cart[j] != null){            //If it DOES exist set found to 1
-                            if (Cart[j].equals(item)){
-                                found++;
-                            }
+                int found = 0;
+                for (int j = 0; j < Cart.length; j++){    //Checks through entire cart to see if item exists
+                    if (Cart[j] != null){            //If it DOES exist set found to 1
+                        if (Cart[j].equals(item)){
+                            found++;
                         }
                     }
-                    if (found == 0) {                   //If it couldn't find the item, then add it in a new position in the cart
-                        Cart[i] = item;
-                        Quantity[i] += quantity;
-                        if (quantity > 1) {
-                            System.out.println(quantity + " " + item_ + "s Added\n");
-                        }
-                        else{
-                            System.out.println(quantity + " " + item_ + " Added\n");
-                        }
-                        counter++;
+                }
+                if (found == 0) {                   //If it couldn't find the item, then add it in a new position in the cart
+                    Cart[i] = item;
+                    Quantity[i] += quantity;
+                    if (quantity > 1) {
+                        System.out.println(quantity + " " + item_ + "s Added\n");
                     }
+                    else{
+                        System.out.println(quantity + " " + item_ + " Added\n");
+                    }
+                    counter++;
+                }
             }
 
         }
-           setRunningTotal(fruitList, fruitPrice, quantity, item);
-           printSumamry();
+        setRunningTotal(fruitList, fruitPrice, quantity, item);
+        printSumamry();
     }
 
     //Function sets the running Total
@@ -87,7 +87,7 @@ public class Cart {
 
     //Function recieves a fruit checks to see if it's in the cart
     Boolean fruitInCart(String fruit){
-        String exists = fruit.substring(0, 1).toUpperCase() + fruit.substring(1);  //Capitalizes the first letter if not already
+        String exists = capitalizeLetter(fruit);
         for (int i = 0; i < Cart.length; i++){
             if (Cart[i] != null){
                 if (Cart[i].equals(exists)){
@@ -109,9 +109,14 @@ public class Cart {
         System.out.printf("\nRunning Total: $%.2f", runningTotal);
     }
 
+    String capitalizeLetter(String fruit_){
+        String item = fruit_.substring(0, 1).toUpperCase() + fruit_.substring(1);  //Capitalizes the first letter if not already
+        return item;
+    }
+
     //Function receives a fruit and the amount the user wants to remove
     void removeItem(String fruit_, int amount, String fruitList[], double fruitPrice[]){
-        String fruit = fruit_.substring(0, 1).toUpperCase() + fruit_.substring(1);  //Capitalizes the first letter if not already
+        String fruit = capitalizeLetter(fruit_);
         for (int i = 0; i < Cart.length; i++){
             if (Cart[i] != null){
                 if (Cart[i].equals(fruit)){
@@ -136,7 +141,7 @@ public class Cart {
                     if (runningTotal < 0){                //If the running total ever goes below 0, set it to 0
                         runningTotal = 0;
                     }
-                   printSumamry();
+                    printSumamry();
                 }
             }
         }
@@ -144,8 +149,7 @@ public class Cart {
 
     //Function receives a fruit and removes it entirely from the cart
     void removeAllItem(String fruit_, String fruitList[], double fruitPrice[]){
-        String fruit = fruit_.substring(0, 1).toUpperCase() + fruit_.substring(1);  //Capitalizes the first letter if not already
-
+        String fruit = capitalizeLetter(fruit_);
         for (int i = 0; i < Cart.length; i++){
             if (Cart[i] != null){
                 if (Cart[i].equals(fruit)){
@@ -180,5 +184,4 @@ public class Cart {
         }
         System.out.printf("\nTotal Price: $ %.2f", runningTotal);
     }
-
 }
