@@ -12,10 +12,10 @@ public class Items {
 
         //Function recieves a fruit and checks if it exists
         Boolean checkItem(String fruit){
-            String cap = fruit.substring(0, 1).toUpperCase() + fruit.substring(1);  //Capitalizes the first letter if not already
+            String exists = fruit.substring(0, 1).toUpperCase() + fruit.substring(1);  //Capitalizes the first letter if not already
             boolean found = false;
             for(int i = 0; i < fruitList.length; i++){
-                if (fruitList[i].equals(cap)){
+                if (fruitList[i].equals(exists)){
                     found = true;
                 }
             }
